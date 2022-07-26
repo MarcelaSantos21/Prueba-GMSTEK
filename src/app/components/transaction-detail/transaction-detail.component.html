@@ -1,0 +1,126 @@
+<div class="transaction-detail-container" *ngIf="data.length > 0">
+  <!-- <mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-tile [colspan]="1"
+    [rowspan]="3">
+      <div class="element-diagram"></div>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="3"
+    [rowspan]="1">
+      <table mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+        <ng-container *ngFor="let column of columnsToDisplay; index as i" matColumnDef="{{ column }}">
+          <th mat-header-cell *matHeaderCellDef>{{ columnsName[i] }}</th>
+          <td mat-cell *matCellDef="let element">
+            <span *ngIf="
+                column === 'amount' ||
+                column === 'retailPrice' ||
+                column === 'govPrice'
+              " style="text-align: right">{{ element[column] | currency }}</span>
+            <span *ngIf="
+                column !== 'amount' &&
+                column !== 'retailPrice' &&
+                column !== 'govPrice'
+              ">{{ element[column] }}
+            </span>
+            <div *ngIf="column === 'actions'" class="actions">
+              <button mat-button class="btn dispute">Dispute</button>
+              <button mat-button class="btn accept">Accept</button>
+            </div>
+          </td>
+          <td mat-footer-cell *matFooterCellDef>
+            <div *ngIf="i === 0">Total</div>
+            <div *ngIf="i === columnsToDisplay.length - 2">
+              {{ getTotalCost() | currency }}
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+        <tr mat-footer-row *matFooterRowDef="columnsToDisplay"></tr>
+      </table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"
+    [rowspan]="1">
+      <div class="card-number">
+        Card Number <span>AIR Card {{ cardNumber }}</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile  [colspan]="1"
+    [rowspan]="1">
+      <div class="history">
+        <table></table>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list> -->
+  <div class="element-diagram">
+    <span class="code">POS Receipt: AB432545</span>
+    <div class="bottom">
+      <mat-icon class="icon material-symbols-outlined">
+        info
+      </mat-icon>
+      <span>1 of 2</span>
+      <mat-icon class="icon material-symbols-rounded">
+        zoom_in
+      </mat-icon>
+    </div>
+  </div>
+  <div class="element-detail">
+    <table mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+      <ng-container *ngFor="let column of columnsToDisplay; index as i" matColumnDef="{{ column }}">
+        <th mat-header-cell *matHeaderCellDef>{{ columnsName[i] }}</th>
+        <td mat-cell *matCellDef="let element">
+          <span *ngIf="
+              column === 'amount' ||
+              column === 'retailPrice' ||
+              column === 'govPrice'
+            ">{{ element[column] | currency }}</span>
+          <span *ngIf="
+              column !== 'amount' &&
+              column !== 'retailPrice' &&
+              column !== 'govPrice'
+            ">{{ element[column] }}
+          </span>
+          <div *ngIf="column === 'actions'" class="actions">
+            <button mat-button class="btn dispute">Dispute</button>
+            <button mat-button class="btn accept">Accept</button>
+          </div>
+        </td>
+        <td mat-footer-cell *matFooterCellDef>
+          <div *ngIf="i === 0">Total</div>
+          <div *ngIf="i === columnsToDisplay.length - 2">
+            {{ getTotalCost() | currency }}
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+      <tr mat-footer-row *matFooterRowDef="columnsToDisplay"></tr>
+    </table>
+    <div class="bottom-container">
+      <div class="card-number">
+        Card Number <span>AIR Card {{ cardNumber }}</span>
+      </div>
+      <div class="history">
+        <table>
+          <thead>
+            <th>History</th>
+            <th>Date and Time</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Transaction Created</td>
+              <td>{{ dateCreated | date: "short" }}</td>
+            </tr>
+            <tr>
+              <td>Transaction Delayed</td>
+              <td>{{ dateDelayed | date: "short" }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <label for="comment" class="lb-comment">Comments</label>
+        <textarea name="comment" class="txt-comment" id="comment" rows="5">
+        </textarea>
+        <mat-icon class="icon material-symbols-outlined"> send </mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

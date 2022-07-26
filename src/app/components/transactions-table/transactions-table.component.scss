@@ -1,0 +1,75 @@
+.transactions-table-container {
+  padding: 10px;
+
+  .table {
+    box-shadow: 1px 3px 8px 0px #bdb8b8;
+    width: 100%;
+
+    tr.detail-row {
+      height: 0;
+    }
+
+    .element-row td {
+      border-bottom-width: 0;
+    }
+
+    .element-detail {
+      overflow: hidden;
+      // display: flex;
+      width: 100%;
+    }
+
+
+
+    ::ng-deep {
+
+      &th.mat-header-cell {
+        text-align: left;
+        font-weight: bold;
+        color: black;
+        // &:last-of-type{
+        //   text-align: center;
+        // }
+      }
+
+      thead,
+      td.mat-cell {
+        white-space: nowrap;
+
+        button {
+          border: none;
+          background: none;
+          cursor: pointer;
+        }
+      }
+
+      td.mat-cell:first-of-type {
+        width: 20px;
+      }
+
+      .mat-checkbox-frame {
+        border-color: black;
+      }
+
+      tr.element-row:not(.expanded-row):hover {
+        background: whitesmoke;
+      }
+
+      td.mat-cell span.status {
+        color: #031097;
+        font-weight: bold;
+        padding: 7px 20px;
+      }
+
+      tr.mat-row.expanded-row {
+        background: #F2F9FF;
+
+        td.mat-cell span.status {
+          background: white;
+          border-radius: 5px;
+          color: #D3483A;
+        }
+      }
+    }
+  }
+}

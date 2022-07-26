@@ -1,0 +1,59 @@
+.cards-container {
+  display: flex;
+  background: #031097;
+  margin: 10px 10px 30px;
+  padding: 15px 20px;
+  border-radius: 10px;
+
+  .card {
+    margin-right: 20px;
+    border-radius: 10px;
+    display: flex;
+
+    &.transactions {
+      background: #E6E6E6;
+    }
+
+    &.tasks {
+      box-shadow: 1px 3px 8px 0px;
+    }
+
+    .col-rigth {
+      text-align: center;
+      margin-right: 30px;
+
+      mat-card-title {
+        font-weight: bold;
+        margin-bottom: 20px;
+        white-space: nowrap;
+      }
+
+      mat-card-subtitle {
+        font-weight: bold;
+        color: black;
+        font-size: 2em;
+      }
+    }
+
+    .col-left {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-self: center;
+      padding-top: 12px;
+
+      .element {
+        display: inline-flex;
+        width: 85%;
+        justify-content: space-between;
+        color: #031097;
+        font-weight: bold;
+
+        p.title {
+          width: 70px;
+          /* margin: 0 0 8px; */
+        }
+      }
+    }
+  }
+}
